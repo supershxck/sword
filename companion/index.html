@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glamdring \u00b7 Sword of Command</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="texture" aria-hidden="true"></div>
+  <div class="shell">
+    <header>
+      <div class="eyebrow">Operator Interface</div>
+      <h1>\u25c6 GLAMDRING // SWORD OF COMMAND</h1>
+      <p class="subtitle">local telemetry \u00b7 neglect radar \u00b7 forge orientation</p>
+      <div class="status-bar">
+        <span class="live">\u25cf LIVE</span>
+        <span id="sync-time">syncing\u2026</span>
+      </div>
+    </header>
+    <section class="deck telemetry-deck">
+      <article class="panel gauge-card" id="cpu-gauge">
+        <div class="panel-title">Compute</div>
+        <svg class="ring" viewBox="0 0 100 100" aria-hidden="true">
+          <circle class="ring-track" cx="50" cy="50" r="42"></circle>
+          <circle class="ring-value" cx="50" cy="50" r="42"></circle>
+        </svg>
+        <div class="gauge-readout">
+          <div class="gauge-pct">0%</div>
+          <div class="gauge-label">CPU</div>
+        </div>
+      </article>
+      <article class="panel gauge-card" id="ram-gauge">
+        <div class="panel-title">Memory</div>
+        <svg class="ring" viewBox="0 0 100 100" aria-hidden="true">
+          <circle class="ring-track" cx="50" cy="50" r="42"></circle>
+          <circle class="ring-value" cx="50" cy="50" r="42"></circle>
+        </svg>
+        <div class="gauge-readout">
+          <div class="gauge-pct">0%</div>
+          <div class="gauge-label">RAM</div>
+          <div class="gauge-sub">\u2014</div>
+        </div>
+      </article>
+      <article class="panel gauge-card" id="disk-gauge">
+        <div class="panel-title">Storage</div>
+        <svg class="ring" viewBox="0 0 100 100" aria-hidden="true">
+          <circle class="ring-track" cx="50" cy="50" r="42"></circle>
+          <circle class="ring-value" cx="50" cy="50" r="42"></circle>
+        </svg>
+        <div class="gauge-readout">
+          <div class="gauge-pct">0%</div>
+          <div class="gauge-label">DISK</div>
+          <div class="gauge-sub">\u2014</div>
+        </div>
+      </article>
+      <article class="panel">
+        <div class="panel-title">Subsystems</div>
+        <div class="gpu-block">
+          <div class="gpu-line" id="gpu-info">awaiting telemetry\u2026</div>
+          <div class="meta-line" id="gpu-sync">SYNC --:--:--</div>
+        </div>
+      </article>
+    </section>
+    <section class="deck command-deck">
+      <article class="panel">
+        <div class="panel-title">Neglect Radar</div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Target</th><th>Type</th><th>Drift</th></tr></thead>
+            <tbody id="neglect-body"></tbody>
+          </table>
+        </div>
+      </article>
+      <article class="panel">
+        <div class="panel-title">Forge Status</div>
+        <div class="sprint-meter">
+          <div class="sprint-bar"><div class="sprint-fill" id="sprint-fill"></div></div>
+          <div class="sprint-label" id="sprint-label">SPRINT LOAD 0/10</div>
+        </div>
+        <div class="forge-digest" id="forge-digest"></div>
+        <div class="card-list" id="forge-cards"></div>
+      </article>
+    </section>
+    <section class="deck ops-deck">
+      <article class="panel">
+        <div class="panel-title">Docker Fleet</div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Unit</th><th>Image</th><th>State</th></tr></thead>
+            <tbody id="docker-body"></tbody>
+          </table>
+        </div>
+      </article>
+      <article class="panel">
+        <div class="panel-title">Signal Log</div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Time</th><th>Signal</th><th>Path</th></tr></thead>
+            <tbody id="signal-body"></tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+    <footer>Glamdring companion \u00b7 local only \u00b7 refreshes every 5s</footer>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
